@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+# Change your sub directory name here.
+RewriteBase /react-sub-url/ 
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rewrite all other URLs to index.php/URL
+# Change your sub directory name here.
+RewriteRule ^(.*)$ /react-sub-url/index.html?url=$1 [PT,L] 
+
+</IfModule>
+<IfModule !mod_rewrite.c>
+ ErrorDocument 404 index.php
+</IfModule>
